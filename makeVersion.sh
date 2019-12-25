@@ -18,7 +18,7 @@ OUT=$(echo $OUT | cut -f2 -d' ')
     cd "${TMP}"
     pwd
     cp --no-preserve=mode "$OUT/lib/typescript.js" a/lib
-    sed -re '/var checker = \{/a isTypeIdenticalTo: isTypeIdenticalTo,' a/lib/typescript.js >| b/lib/typescript.js
+    sed -re '/var checker = \{/a isTypeIdenticalTo: isTypeIdenticalTo, isTypeAssignableTo: isTypeAssignableTo,' a/lib/typescript.js >| b/lib/typescript.js
     diff -Naur a b > "${DIR}/patches/${VERSION}.patch"
     rm -r "${TMP}"
 )   

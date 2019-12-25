@@ -1,11 +1,11 @@
 diff -Naur a/lib/typescript.js b/lib/typescript.js
---- a/lib/typescript.js	2019-12-25 18:07:01.078031860 +0100
-+++ b/lib/typescript.js	2019-12-25 18:07:01.112032147 +0100
+--- a/lib/typescript.js	2019-12-25 19:35:57.263382513 +0100
++++ b/lib/typescript.js	2019-12-25 19:35:57.294382762 +0100
 @@ -33271,6 +33271,7 @@
          // extra cost of calling `getParseTreeNode` when calling these functions from inside the
          // checker.
          var checker = {
-+isTypeIdenticalTo: isTypeIdenticalTo,
++isTypeIdenticalTo: isTypeIdenticalTo, isTypeAssignableTo: isTypeAssignableTo,
              getNodeCount: function () { return ts.sum(host.getSourceFiles(), "nodeCount"); },
              getIdentifierCount: function () { return ts.sum(host.getSourceFiles(), "identifierCount"); },
              getSymbolCount: function () { return ts.sum(host.getSourceFiles(), "symbolCount") + symbolCount; },

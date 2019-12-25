@@ -1,5 +1,6 @@
 { 
   version,
+  suffix ? "",
   sha256,
   patches,
   stdenv, 
@@ -18,13 +19,13 @@
 
     buildPhase = ''
         NAME=v$(echo ${version} | sed  's/\.[0-9]*$//')
-        jq ".name=\"@testable-ts/$NAME\"" < package.json | sponge package.json
+        jq ".name=\"@testable-ts/$NAME\" | .version=\"${version}${suffix}\" | .repository=\"https://github.com/phryneas/testable-ts\"" < package.json | sponge package.json
         npm pack --ignore-scripts
     '';
 
     installPhase = ''
         mkdir $out
-        cp testable-ts-$NAME-${version}.tgz $out/
+        cp testable-ts-$NAME-${version}${suffix}.tgz $out/
     '';
 
     buildInputs = [ nodejs jq moreutils ];

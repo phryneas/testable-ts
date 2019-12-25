@@ -15,3 +15,10 @@ jobs:
         with:
           name: results
           path: result/.
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: for tarball in result/*; do npm publish --access public --verbose ./$tarball; done;
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
