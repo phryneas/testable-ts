@@ -28,6 +28,7 @@ cat <<EOF | awk 1 ORS='\\n'
             version = "${VERSION}";
             sha256 = "${HASH}";
             patches = [ ./patches/${VERSION}.patch ];
+            suffix = "-alpha.0";
         })
 EOF
 )"  default.nix
