@@ -22,10 +22,12 @@ OUT=$(echo $OUT | cut -f2 -d' ')
     diff -Naur a b > "${DIR}/patches/${VERSION}.patch"
     rm -r "${TMP}"
 )   
-cat <<EOF
+sed -i -e "/^\s*$/d" -e "/#NEXT-HERE/i \\\\n$(
+cat <<EOF | awk 1 ORS='\\n' 
         ( callPackage ./testable-ts.nix {
             version = "${VERSION}";
             sha256 = "${HASH}";
             patches = [ ./patches/${VERSION}.patch ];
         })
 EOF
+)"  default.nix

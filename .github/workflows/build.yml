@@ -19,6 +19,6 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: for tarball in result/*; do npm publish --access public --verbose ./$tarball; done;
+      - run: for tarball in result/*; do npm publish --access public --verbose ./$tarball || true; done;
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

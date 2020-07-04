@@ -80,5 +80,16 @@ buildEnv {
             patches = [ ./patches/2.5.3.patch ];
             suffix = "-alpha.0";
         })
+        ( callPackage ./testable-ts.nix {
+            version = "3.8.3";
+            sha256 = "01y4aqdyaxqh32wi4mysf1xarp0w9ljjqxs4s34v6f51azkbm327";
+            patches = [ ./patches/3.8.3.patch ];
+        })
+        ( callPackage ./testable-ts.nix {
+            version = "3.9.5";
+            sha256 = "1njpv8kl8nhbdswnk91grs4ww4cm6p91g3s7800cp552vz5g1k7i";
+            patches = [ ./patches/3.9.5.patch ];
+        })
+        #NEXT-HERE
     ];
 }
