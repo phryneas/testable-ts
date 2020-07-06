@@ -90,6 +90,14 @@ buildEnv {
             sha256 = "1njpv8kl8nhbdswnk91grs4ww4cm6p91g3s7800cp552vz5g1k7i";
             patches = [ ./patches/3.9.5.patch ];
         })
+
+        ( callPackage ./testable-ts.nix {
+            version = "4.0.0-beta";
+            sha256 = "01v0chn26igc6h2dxk07pxcwz2vc2cb94s5xcins33hfcpz8ay6g";
+            patches = [ ./patches/4.0.0-beta.patch ];
+            suffix = "-experimental-0";
+        })
+
         #NEXT-HERE
     ];
 }
