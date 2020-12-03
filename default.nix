@@ -86,16 +86,22 @@ buildEnv {
             patches = [ ./patches/3.8.3.patch ];
         })
         ( callPackage ./testable-ts.nix {
-            version = "3.9.5";
-            sha256 = "1njpv8kl8nhbdswnk91grs4ww4cm6p91g3s7800cp552vz5g1k7i";
-            patches = [ ./patches/3.9.5.patch ];
+            version = "3.9.7";
+            sha256 = "0vrfkd30x09h7s48fqa5vir0qhj7xrxscy33yy1vv5nscqi7hs1j";
+            patches = [ ./patches/3.9.7.patch ];
+            suffix = "-alpha.0";
         })
-
         ( callPackage ./testable-ts.nix {
-            version = "4.0.0-beta";
-            sha256 = "01v0chn26igc6h2dxk07pxcwz2vc2cb94s5xcins33hfcpz8ay6g";
-            patches = [ ./patches/4.0.0-beta.patch ];
-            suffix = "-experimental-0";
+            version = "4.0.5";
+            sha256 = "0bmb6d72zxgfh723v0v800clhvsm5ylnclxpby2vnxsas4c04iwy";
+            patches = [ ./patches/4.0.5.patch ];
+            suffix = "-alpha.0";
+        })
+        ( callPackage ./testable-ts.nix {
+            version = "4.1.2";
+            sha256 = "1dfffipgq0njgad3yxr0i1kwyljmclfjmd6g5rqm868a1ppcmdln";
+            patches = [ ./patches/4.1.2.patch ];
+            suffix = "-alpha.0";
         })
 
         #NEXT-HERE
